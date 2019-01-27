@@ -4,5 +4,7 @@ int main(){
 
 	// Your code here
 
+	cout << "hei";
+
 	return 0;
 }
