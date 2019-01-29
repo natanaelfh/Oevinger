@@ -35,6 +35,6 @@ void playMasterMind() {
 			cout << "Du hadde " << charInRightSpot(code, guess) << " bokstaver på rikitg plass." << endl;
 		}
 	}
-
+	//hei
 	cout << "Du tapte, bedre lykke neste gang." << endl;
 }
