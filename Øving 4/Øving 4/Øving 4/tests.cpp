@@ -27,4 +27,38 @@ void testCallByValueRef() {
 
 void testVectorSorting() {
 	vector<int> percentages;
+	randomizeVector(percentages, 10);
+	for (int i : percentages) {
+		cout << i << " ";
+	}
+	cout << endl;
+	swap(percentages[0], percentages[1]);
+	for (int i : percentages) {
+		cout << i << " ";
+	}
+	cout << endl;
+	sortVector(percentages);
+	for (int i : percentages) {
+		cout << i << " ";
+	}
+	cout << endl;
+
+	cout << medianOfVector(percentages) << endl;
 }
+
+void testString() {
+	string grades;
+	grades = randomizeString(3, 'F', 'A');
+	cout << grades << endl;
+	int tot{ 0 };
+	vector<int> gradeCount;
+	for (int i = 0; i < 6; i++) {
+		gradeCount.push_back(countChar(grades, (char)('A' + i)));
+		tot = tot + gradeCount[i] * (5 - i);
+	}
+	double snitt = (double)tot / grades.size();
+
+	cout << "Snitt: " << snitt << endl;
+
+}
+

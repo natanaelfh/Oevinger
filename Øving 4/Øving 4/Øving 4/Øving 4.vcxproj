@@ -135,10 +135,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="masterMind.cpp" />
     <ClCompile Include="tests.cpp" />
     <ClCompile Include="utilities.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="masterMind.h" />
     <ClInclude Include="tests.h" />
     <ClInclude Include="utilities.h" />
   </ItemGroup>

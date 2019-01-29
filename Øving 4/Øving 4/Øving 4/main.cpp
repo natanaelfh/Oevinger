@@ -1,8 +1,11 @@
 #include "std_lib_facilities.h"
 #include "tests.h"
 #include "utilities.h"
+#include "masterMind.h"
 
 int main(){
+
+	srand(static_cast<unsigned int>(time(nullptr)));
 	int k = 8;
 	int t = 5;
 	int c{ 1 };
@@ -29,6 +32,14 @@ int main(){
 
 		case(4): {
 			testVectorSorting();
+			break;
+		}
+		case(5): {
+			testString();
+			break;
+		}
+		case(6): {
+			playMasterMind();
 			break;
 		}
 		default:
