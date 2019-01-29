@@ -18,11 +18,11 @@ void playMasterMind() {
 
 
 	cout << "Gjett " << letters << " antall bokstaver" << endl << "Du har "
-		<< numberOfTries << " antall forsøk" << endl;
+		<< numberOfTries << " antall forsÃ¸k" << endl;
 
 	for (int i=0; i < numberOfTries; i++) {
 
-		cout << "Du er på forsøk nr. " << (i + 1) << endl;
+		cout << "Du er pÃ¥ forsÃ¸k nr. " << (i + 1) << endl;
 
 		guess = readInputToString(letters);
 
@@ -32,10 +32,9 @@ void playMasterMind() {
 		}
 		else {
 			cout << "Du hadde " << charsCorrect(code, guess) << " riktige bokstaver." << endl;
-			cout << "Du hadde " << charInRightSpot(code, guess) << " bokstaver på rikitg plass." << endl;
+			cout << "Du hadde " << charInRightSpot(code, guess) << " bokstaver pÃ¥ rikitg plass." << endl;
 		}
 	}
 
 	cout << "Du tapte, bedre lykke neste gang." << endl;
-	//ok
 }
