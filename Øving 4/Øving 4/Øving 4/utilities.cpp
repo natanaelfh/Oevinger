@@ -28,7 +28,8 @@ void swap(int&a, int&b) {
 
 void randomizeVector(vector<int>& vc, int n) {
 	for (int i{ 0 }; i < n; i++) {
-		int tilfeldig_tall = rand();		int tall = (tilfeldig_tall % 101);
+		int tilfeldig_tall = rand();
+		int tall = (tilfeldig_tall % 101);
 		vc.push_back(tall);
 	}
 }
@@ -58,7 +59,8 @@ double medianOfVector(const vector<int>& vr) {
 string randomizeString(int lenght, char upper, char lower) {
 	string vr;
 	for (int i{ 0 }; i < lenght; i++) {
-		int tilfeldig_tall = rand();		int tall = (tilfeldig_tall % ((upper-lower) +1));
+		int tilfeldig_tall = rand();
+		int tall = (tilfeldig_tall % ((upper-lower) +1));
 		vr.push_back(tall + lower);
 	}
 	return vr;
