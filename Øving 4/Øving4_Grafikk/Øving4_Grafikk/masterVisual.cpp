@@ -6,7 +6,7 @@
 
 // Application layout in fractions (percentage) of window width and height
 // Horisontally:
-constexpr double guess_w = 0.75;			 // width of field for guess as fraction of window_width
+constexpr double guess_w = 0.5;			 // width of field for guess as fraction of window_width
 constexpr double feedback_w = 1.0 - guess_w; // width of field for feedback as fraction of window_width. Note how this
 											 // code is better than setting the value to 0.25
 constexpr double roomAroundGuess = guess_w / 6.0;
@@ -52,19 +52,24 @@ void hideCode(MastermindWindow& mwin, int size)
 // correctCharacter: hvor mange bokstaver er riktige, uavhangig av posisjon?
 void addFeedback(MastermindWindow& mwin, const int correctPosition, const int correctCharacter, const int size, const int round)
 {
-	const int centerY = 0; // Regn ut sirklenes y-koordinat (sentrum)
+	const int oneGuess_w = ((mwin.x_max()*feedback_w-2*roomAroundGuess)/size);
+	const int centerY = static_cast<int>((((round * guessHeight) + vRoomAboveGuess) * mwin.y_max())+ mwin.y_max()*oneColor_h*0.5);
 	for (int i = 0; i < size; ++i) {
-		const int centerX = 0; // Regn ut sirkelens x-koordinat (sentrum)
+		const int centerX = static_cast<int>(roomAroundGuess+ 20 + mwin.x_max()-(feedback_w*mwin.x_max())+oneGuess_w*i);
 
 		mwin.vc.push_back(new Circle{Point{centerX, centerY}, 8});
 
 		if (i < correctPosition) {
-			// Sett farge for korrekt plassering
+			mwin.vc[mwin.vc.size() - 1].set_fill_color(Color::red);
 		} else if (i < (correctPosition + max(0, correctCharacter - correctPosition))) {
+
+			mwin.vc[mwin.vc.size() - 1].set_fill_color(Color::green);
 			// Sett farge for korrekt bokstav, men feil plassering
 		}
 
 		// Koble sirkelen til vinduet (attach)
+
+		mwin.attach(mwin.vc[mwin.vc.size() - 1]);
 
 	}
 }

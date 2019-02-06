@@ -35,7 +35,7 @@ void randomizeVector(vector<int>& vc, int n) {
 }
 
 void sortVector(vector<int>&vr) {
-	int i{ 1 };
+	int i=1;
 	while (i < vr.size()) {
 		int j{ i };
 		while (j > 0 && vr[j - 1] > vr[j]) {
