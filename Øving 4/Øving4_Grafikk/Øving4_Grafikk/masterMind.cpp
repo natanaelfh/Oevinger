@@ -7,7 +7,8 @@
 
 void playMasterMind() {
 
-	MastermindWindow mwin{ Point{900, 20}, 400, 900, "Mastermind" };
+	MastermindWindow mwin{ Point{900, 20}, 400, 900, "Mastermind" };
+
 	constexpr int size{ 4 };
 	constexpr int letters{ 6 };
 	constexpr int numberOfTries{ 10 };
