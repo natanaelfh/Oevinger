@@ -9,3 +9,13 @@ enum class Rank {
 };
 
 string suitToString(Suit suit);
+
+
+struct CardStruct {
+	Suit s;
+	Rank r;
+};
+
+string toString(CardStruct card);
+
+string toStringShort(CardStruct card);
