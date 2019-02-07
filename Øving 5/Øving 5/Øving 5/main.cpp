@@ -2,7 +2,8 @@
 #include "Card.h"
 
 int main(){
-
+	testEnumCast();
+	
 	// Your code here
 	suitToString(Suit::diamonds);
 	return 0;

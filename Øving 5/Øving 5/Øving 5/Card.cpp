@@ -46,3 +46,11 @@ string toStringShort(CardStruct card) {
 	ostringstream os;
 
 }
+
+void testEnumCast() {
+	int a{ static_cast<int>(Rank::king) };
+	cout << "King to int: " << a << endl;
+
+	Rank r { static_cast<Rank>(12) };
+	cout << rankToString(r);
+}

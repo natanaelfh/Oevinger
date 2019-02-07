@@ -19,3 +19,5 @@ struct CardStruct {
 string toString(CardStruct card);
 
 string toStringShort(CardStruct card);
+
+void testEnumCast();

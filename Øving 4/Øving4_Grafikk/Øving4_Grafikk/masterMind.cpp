@@ -25,6 +25,8 @@ void playMasterMind() {
 	cout << "Gjett " << letters << " antall bokstaver" << endl << "Du har "
 		<< numberOfTries << " antall forsøk" << endl;
 
+	cout << code << endl;
+
 	for (int i=0; i < numberOfTries; i++) {
 		cout << "Du er på forsøk nr. " << (i + 1) << endl;
 		guess = readInputToString(letters);
