@@ -1,7 +1,7 @@
 #include "std_lib_facilities.h"
 #include "Card.h"
 #include "CardDeck.h"
-
+#include "utilities.h"
 int main(){
 	//testEnumCast();
 	

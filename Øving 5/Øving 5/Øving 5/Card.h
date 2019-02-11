@@ -1,5 +1,6 @@
 #pragma once
 #include "std_lib_facilities.h"
+#include "utilities.h"
 
 enum class Suit{clubs, diamonds, hearts, spades};
 

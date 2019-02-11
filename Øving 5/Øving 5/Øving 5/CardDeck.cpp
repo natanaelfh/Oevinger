@@ -40,5 +40,17 @@ void CardDeck::printShort() {
 
 void CardDeck::shuffle() {
 	int size = this->cards.size();
+	for (int i = 0; i < (size / 2); i++) {
+		int pos1;
+		int pos2;
+		getTwoDifferentRandomNumbers(pos1, pos2, size - 1, 0);
+		this->swap(pos1, pos2);
+	}
+}
 
+Card CardDeck::drawCard() {
+	Card temp = this->cards[0];
+	this->cards.erase(cards.begin);
+	this->currentCardIndex++;
+	return temp;
 }
