@@ -21,3 +21,21 @@ string toString(CardStruct card);
 string toStringShort(CardStruct card);
 
 void testEnumCast();
+
+class Card {
+
+private:
+	Suit s;
+	Rank r;
+	bool valid;
+public:
+	Card();
+	Card(Suit s, Rank r);
+	Suit getSuit();
+	Rank getRank();
+	bool isValid();
+	string toString();
+	string toStringShort();
+
+
+};
