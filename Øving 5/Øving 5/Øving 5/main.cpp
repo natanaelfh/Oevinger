@@ -7,14 +7,17 @@ int main(){
 	//testEnumCast();
 	
 	// Your code here
-	suitToString(Suit::diamonds);
+	//suitToString(Suit::diamonds);
 
-	CardStruct card{ Suit::diamonds, Rank::eight };
+	//CardStruct card{ Suit::diamonds, Rank::eight };
 
-	cout << toString(card);
-	cout << toStringShort(card);
+	//cout << toString(card);
+	//cout << toStringShort(card);
 	
-	testGetPlayers();
+	//testGetPlayers();
+	srand(static_cast<unsigned int>(time(0)));
+	BlackJack game = BlackJack::BlackJack();
+	game.startBlackJack();
 	
 	return 0;
 

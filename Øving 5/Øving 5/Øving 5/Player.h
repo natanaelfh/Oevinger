@@ -9,14 +9,24 @@ private:
 	bool isDealer;
 	bool isValid;
 	vector<Card> cardsDrawn;
+
+	string name;
+	bool canDraw;
+	bool inGame;
 public:
 	int getCardValue();
 	void drawCard(Card card);
-	void choose();
+	bool choose();
+	string getName();
+	bool getDealer();
+	bool getCanDraw();
+	void pushCanDraw(bool canDraw);
+	void removeFromGame();
+	bool getInGame();
 
-	string name;
 	Player();
 	Player(bool isDealer, string name);
 	~Player();
+	
 };
 

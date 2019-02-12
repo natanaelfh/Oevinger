@@ -25,7 +25,7 @@ vector<Player> BlackJack::getPlayers() {
 	do
 	{
 		cout << "Add player name(empty for no more players): ";
-		cin >> name;
+		getline(cin, name);
 		if (name != "") {
 			temp = Player(false, name);
 			players.push_back(temp);
@@ -47,11 +47,60 @@ void BlackJack::drawFirstTwoCards() {
 
 }
 
+
 void BlackJack::startBlackJack() {
 	//hvordan man starter spilet
 	//burde kun trenge å skive dette i main for å spille
 	vector<Player> players = getPlayers();
-	void drawFirstTwoCards();
 	this->deck = CardDeck::CardDeck();
 	this->deck.shuffle();
+	void drawFirstTwoCards();
+	this->allDone = false;
+	int value = 0;
+	do
+	{
+		/*dealerValue = players[0].getCardValue();
+		if (dealerValue == 21) {
+			allDone = true;
+			cout << "Dealer vant" << endl;
+		}
+		else if (dealerValue > 21) {
+			allDone = true;
+			for (Player player : this->players) {
+				cout << player.getName() << " vant!" << endl;
+			}
+		}
+		else {*/
+		allDone = true;
+			for (Player player : players) {
+				if (player.getInGame()) {
+					value = player.getCardValue();
+					if (player.choose()) {
+						allDone = false;
+						player.drawCard(this->deck.drawCard());
+						if (player.getDealer()) {
+
+							if (value == 21) {
+								return;
+								cout << "Dealer vant" << endl;
+							}
+							else if (value > 21) {
+								return;
+								for (Player player : this->players) {
+									cout << player.getName() << " vant!" << endl;
+								}
+							}
+						}
+						else {
+							if (value > 21) {
+								cout << "Du fikk verdien: " << static_cast<int> (player.getCardValue()) << "\nBeklager du tapte." << endl;
+								player.removeFromGame();
+							}
+						}
+					}
+				}
+			}
+
+		//}
+	} while (this->allDone != true);
 }

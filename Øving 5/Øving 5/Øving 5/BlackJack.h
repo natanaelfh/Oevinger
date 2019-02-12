@@ -9,15 +9,15 @@
 class BlackJack
 {
 private:
+	bool allDone;
 	void drawFirstTwoCards();
-	void drawPlayerCard();
 	vector<Player> getPlayers();
 	CardDeck deck;
+	vector<Player> players;
 public:
 	BlackJack();
 	~BlackJack();
 	void startBlackJack();
 
-	vector<Player> players;
 };
 
