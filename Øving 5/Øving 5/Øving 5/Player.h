@@ -5,7 +5,13 @@
 #include "CardDeck.h"
 class Player
 {
+private:
+	bool isDealer;
+	vector<Card> cardsDrawn;
 public:
+	int getCardValue();
+	void drawCard();
+	void choose();
 	Player();
 	~Player();
 };
