@@ -2,6 +2,7 @@
 #include "Card.h"
 #include "CardDeck.h"
 #include "utilities.h"
+#include "test.h"
 int main(){
 	//testEnumCast();
 	
@@ -12,5 +13,12 @@ int main(){
 
 	cout << toString(card);
 	cout << toStringShort(card);
+	
+	testGetPlayers();
+	
 	return 0;
+
+
+
+
 }

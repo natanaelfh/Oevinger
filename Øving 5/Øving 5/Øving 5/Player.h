@@ -8,12 +8,13 @@ class Player
 private:
 	bool isDealer;
 	bool isValid;
-	string name;
 	vector<Card> cardsDrawn;
 public:
 	int getCardValue();
 	void drawCard(Card card);
 	void choose();
+
+	string name;
 	Player();
 	Player(bool isDealer, string name);
 	~Player();

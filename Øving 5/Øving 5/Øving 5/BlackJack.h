@@ -11,12 +11,13 @@ class BlackJack
 private:
 	void drawFirstTwoCards();
 	void drawPlayerCard();
-	vector<Player> players;
 	vector<Player> getPlayers();
 	CardDeck deck;
 public:
 	BlackJack();
 	~BlackJack();
 	void startBlackJack();
+
+	vector<Player> players;
 };
 

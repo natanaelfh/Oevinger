@@ -39,7 +39,7 @@ void CardDeck::printShort() {
 }
 
 void CardDeck::shuffle() {
-	int size = this->cards.size();
+	int size = static_cast<int>( this->cards.size());
 	for (int i = 0; i < (size / 2); i++) {
 		int pos1;
 		int pos2;
@@ -50,7 +50,9 @@ void CardDeck::shuffle() {
 
 Card CardDeck::drawCard() {
 	Card temp = this->cards[0];
-	this->cards.erase(cards.begin);
+	cards = this->cards;
+	cards.erase(cards.begin());
+	this->cards = cards;
 	this->currentCardIndex++;
 	return temp;
 }
