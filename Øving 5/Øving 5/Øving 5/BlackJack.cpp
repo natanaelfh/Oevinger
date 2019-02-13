@@ -29,7 +29,7 @@ vector<Player> BlackJack::getPlayers() {
 			players.push_back(temp);
 		}
 
-	} while (name != "");
+	} while (name != "" || players.size() == 0);
 	//add dealer
 	Player dealer = Player(true, "Dealer");
 	players.push_back(dealer);
@@ -68,17 +68,10 @@ void BlackJack::startBlackJack() {
 						allDone = false;
 						player.drawCard(this->deck.drawCard());
 						value = player.getCardValue();
-						if (player.getDealer()) {
+						if ((player.getDealer())==false) {
 
-							if (value == 21) {
-								return;
-								cout << "Dealer vant" << endl;
-							}
-							
-						}
-						else {
 							if (value > 21) {
-								cout << player.getName() << " fikk verdien: " << static_cast<int> (player.getCardValue()) << "\nBeklager du tapte." << endl;
+								cout << player.getName() << "\t fikk verdien: " << static_cast<int> (player.getCardValue()) << "\tBeklager du tapte." << endl;
 								player.removeFromGame();
 							}
 						}
@@ -87,27 +80,33 @@ void BlackJack::startBlackJack() {
 			}
 
 	} while (this->allDone != true);
-
+	
 	cout << "----------------------------" << endl;
-	cout << "--------GAME OVER-----------" << endl;
 	cout << "----------------------------" << endl;
 	int dealerValue{ this->players.back().getCardValue() };
 	cout << "Dealeren hadde verdi: " << dealerValue << endl;
 	for (Player player : this->players) {
 		if (dealerValue > 21) {
 			if ((player.getInGame()) && (player.getDealer() != true)) {
-				cout << player.getName() << " vant! Hurra." << endl;
+				cout << player.getName() << "\t vant! Hurra." << endl;
 			}
 		}
 		else {
 			if ((player.getInGame()) && (player.getDealer() != true)) {
 				if (player.getCardValue() > dealerValue) {
-					cout << player.getName() << " vant over dealer" << endl;
+					cout << player.getName() << "\t vant over dealer";
 				}
 				else {
-					cout << player.getName() << " tapte over dealer" << endl;
+					cout << player.getName() << "\t tapte over dealer";
 				}
+				cout << " med verdi " << player.getCardValue() << endl;
+			}
+			else if (player.getInGame() == false) {
+				cout << player.getName() << "\t tapte tidligere i runden ved å score for høyt" << endl;
 			}
 		}
-	}
+		}
+	cout << "----------------------------" << endl;
+	cout << "--------GAME OVER-----------" << endl;
+	cout << "----------------------------" << endl;
 }

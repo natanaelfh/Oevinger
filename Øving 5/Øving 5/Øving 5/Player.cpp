@@ -65,9 +65,9 @@ void Player::drawCard(Card card) {
 	temp.push_back(card);
 	this->cardsDrawn = temp;
 
-	//if ((this->getDealer() && this->cardsDrawn.size() != 0) || (this->getDealer() == false)) {
+	if ((this->getDealer() && this->cardsDrawn.size() != 0) || (this->getDealer() == false)) {
 		cout << this->name << " trakk " << card.toString() << endl;
-	//}
+	}
 }
 
 string Player::getName() {
