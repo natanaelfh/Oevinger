@@ -60,11 +60,14 @@ int Player::getCardValue() {
 void Player::drawCard(Card card) {
 
 	//meningen er å si hva man trekker dersom man ikke er på sitt første kort eller om man ikke er dealer
-	this->cardsDrawn.push_back(card);
+	vector<Card> temp;
+	temp = this->cardsDrawn;
+	temp.push_back(card);
+	this->cardsDrawn = temp;
 
-	if ((this->getDealer() && this->cardsDrawn.size() != 0) || (this->getDealer() == false)) {
+	//if ((this->getDealer() && this->cardsDrawn.size() != 0) || (this->getDealer() == false)) {
 		cout << this->name << " trakk " << card.toString() << endl;
-	}
+	//}
 }
 
 string Player::getName() {
@@ -95,10 +98,13 @@ bool Player::choose() {
 		return false;
 	}
 	else {
-		cout << "Du har kortene: " << endl;
+
+		cout << "-------------------------------" << endl;
+		cout << this->getName() << " har kortene: " << endl;
 		for (Card card : this->cardsDrawn) {
-			cout << static_cast<string> (card.toStringShort()) << endl;
+			cout << static_cast<string> (card.toStringShort()) << "\t";
 		}
+		cout << endl;
 		cout << "Maks verdi: " << static_cast<int>( this->getCardValue()) << endl;
 		cout << "Vil du trekke? (1 for ja, 0 for nei): ";
 		bool isValid{ false };

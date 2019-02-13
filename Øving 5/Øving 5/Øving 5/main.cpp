@@ -16,8 +16,11 @@ int main(){
 	
 	//testGetPlayers();
 	srand(static_cast<unsigned int>(time(0)));
-	BlackJack game = BlackJack::BlackJack();
-	game.startBlackJack();
+
+	while (true) {
+		BlackJack game = BlackJack::BlackJack();
+		game.startBlackJack();
+	}
 	
 	return 0;
 

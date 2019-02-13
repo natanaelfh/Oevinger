@@ -99,7 +99,7 @@ Rank Card::getRank() {
 
 string Card::toString() {
 	ostringstream os;
-	os << rankToString(this->r) << " of " << suitToString(this->s) << endl;
+	os << rankToString(this->r) << " of " << suitToString(this->s);
 	return os.str();
 }
 
@@ -132,7 +132,7 @@ string Card::toStringShort() {
 	}
 
 
-	os << firstLetter << to_string(value) << endl;
+	os << firstLetter << to_string(value);
 
 	return os.str();
 	
