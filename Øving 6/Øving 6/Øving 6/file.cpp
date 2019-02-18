@@ -79,3 +79,4 @@ void countFile() {
 		cout << static_cast<char>('a' + i) << ": " << charList[i] << endl;
 	}
 }
+
