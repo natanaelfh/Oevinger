@@ -1,0 +1,5 @@
+TEP4100;Fluidme kanikk
+TEP4130;Fluidme kanikk
+TMA4125;Satistikk
+TMA4155;Sati stikk
+TMA4165;Satistikk
