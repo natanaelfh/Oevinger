@@ -42,8 +42,8 @@ public:
 class Face : public Emoji
 {
 
-private:
-	Circle face;
+protected:
+Circle face;
 
 public:
 	Face(Point c, int r);
@@ -60,14 +60,43 @@ public:
 };
 
 
-class EmptyFace : public Face, public Eye
+class EmptyFace
 {
 private:
-	int emojiRadius{ 50 };
+	Face test;
+	Eye leftEye;
+	Eye rightEye;
+
 public:
 	EmptyFace(Point c, int r);
+	void attach_to(Graph_lib::Window& win);
 };
 
+class SmilingMouth {
+private:
+	Arc mouth;
+public:
+	SmilingMouth(Point c);
+	void attach_to(Graph_lib::Window& win);
+};
+
+class SadMouth {
+private:
+	Arc mouth;
+public:
+	SadMouth(Point c);
+	void attach_to(Graph_lib::Window& win);
+};
+
+
+class SadFace {
+private:
+	EmptyFace blank;
+	SadMouth mouth;
+public:
+	SadFace(Point c, int r);
+	void attach_to(Graph_lib::Window& win);
+};
 /* TODO:
  *  - declare more emojis.
  **/

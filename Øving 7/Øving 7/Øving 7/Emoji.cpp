@@ -45,8 +45,37 @@ void Eye::attach_to(Graph_lib::Window& win) {
 }
 
 
-EmptyFace::EmptyFace(Point c, int r): Face test{ c, emojiRadius } {
-	;
-	Eye lefteye{ Point{c.x - 10, c.y - 10},emojiRadius / 5 };
-	Eye righteye{ Point{c.x + 10, c.y - 10},emojiRadius / 5 };
+EmptyFace::EmptyFace(Point c, int r): test{ c, r }, leftEye{ Point{c.x - 10, c.y - 10},r / 5 }, rightEye{ Point{c.x + 10, c.y - 10},r / 5 } {
+
+}
+
+void EmptyFace::attach_to(Graph_lib::Window& win) {
+	test.attach_to(win);
+	leftEye.attach_to(win);
+	rightEye.attach_to(win);
+}
+
+
+SmilingMouth::SmilingMouth(Point c) :mouth{c, 50,50,-10,10} {
+	
+}
+void SmilingMouth::attach_to(Graph_lib::Window& win) {
+	win.attach(this->mouth);
+}
+
+
+SadMouth::SadMouth(Point c) :mouth{ c, 50,50,10,170 } {
+
+}
+void SadMouth::attach_to(Graph_lib::Window& win) {
+	win.attach(this->mouth);
+}
+
+
+SadFace::SadFace(Point c, int r) :blank{ c,r }, mouth{ c }{
+
+}
+void SadFace::attach_to(Graph_lib::Window& win) {
+	blank.attach_to(win);
+	mouth.attach_to(win);
 }

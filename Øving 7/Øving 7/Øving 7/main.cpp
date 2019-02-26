@@ -14,12 +14,8 @@ int main()
 	const string win_label{"Emoji factory"};
 	Simple_window win{tl, xmax, ymax, win_label};
 
-	Face test{ tl, emojiRadius };
-	test.attach_to(win);
-	Eye lefteye{ Point{tl.x-10, tl.y-10},emojiRadius / 5 };
-	lefteye.attach_to(win);
-	Eye righteye{ Point{tl.x + 10, tl.y - 10},emojiRadius / 5 };
-	righteye.attach_to(win);
+	SadFace face{ tl, emojiRadius };
+	face.attach_to(win);
 
 	/* TODO:
 	 *  - initialize emojis
