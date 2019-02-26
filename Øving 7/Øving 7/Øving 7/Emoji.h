@@ -50,6 +50,23 @@ public:
 	virtual void attach_to(Graph_lib::Window& win) override;
 };
 
+class SmilingEyes {
+private:
+	Arc eye;
+
+public:
+	SmilingEyes(Point c);
+	virtual void attach_to(Graph_lib::Window& win);
+};
+
+class AngryLines {
+private:
+	Line line;
+public:
+	AngryLines(Point s, Point e);
+	virtual void attach_to(Graph_lib::Window& win);
+};
+
 class Eye {
 private:
 
@@ -69,6 +86,19 @@ private:
 
 public:
 	EmptyFace(Point c, int r);
+	void attach_to(Graph_lib::Window& win);
+};
+
+
+class SmilingEmptyFace
+{
+private:
+	Face test;
+	SmilingEyes leftEye;
+	SmilingEyes rightEye;
+
+public:
+	SmilingEmptyFace(Point c, int r);
 	void attach_to(Graph_lib::Window& win);
 };
 
@@ -95,6 +125,46 @@ private:
 	SadMouth mouth;
 public:
 	SadFace(Point c, int r);
+	void attach_to(Graph_lib::Window& win);
+};
+
+class SmilingFace {
+private:
+	EmptyFace blank;
+	SmilingMouth mouth;
+public:
+	SmilingFace(Point c, int r);
+	void attach_to(Graph_lib::Window& win);
+};
+
+class SuperHappyFace {
+private:
+	SmilingEmptyFace blank;
+	SmilingMouth mouth;
+public:
+	SuperHappyFace(Point c, int r);
+	void attach_to(Graph_lib::Window& win);
+};
+
+class SuperAngryFace {
+private:
+	EmptyFace blank;
+	AngryLines leftLine;
+	AngryLines rightLine;
+	SadMouth mouth;
+public:
+	SuperAngryFace(Point c, int r);
+	void attach_to(Graph_lib::Window& win);
+};
+
+class ScaredFace {
+private:
+	EmptyFace blank;
+	AngryLines leftLine;
+	AngryLines rightLine;
+	SadMouth mouth;
+public:
+	ScaredFace(Point c, int r);
 	void attach_to(Graph_lib::Window& win);
 };
 /* TODO:
