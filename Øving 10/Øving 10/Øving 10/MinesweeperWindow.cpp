@@ -4,6 +4,7 @@ MinesweeperWindow::MinesweeperWindow(Point xy, int width, int height, int mines,
 	Graph_lib::Window(xy, width * cellSize, height*cellSize, title), width(width), height(height), mines(mines)
 	//Initialiser medlemsvariabler, bruker også konstruktøren til Windowsklassen
 {
+	this->opened = 0;
 	// Legg til alle tiles på vinduet
 	for (int i = 0; i < height; ++i) {
 		for (int j = 0; j < width; ++j) {
@@ -30,16 +31,24 @@ MinesweeperWindow::MinesweeperWindow(Point xy, int width, int height, int mines,
 	resizable(nullptr);
 	size_range(x_max(), y_max(), x_max(), y_max());
 
+	////sier at tile 0 er en mine
 
-	//sier at tile 0 er en mine
-
-	this->tiles[0].isMine = true;
-	this->tiles[0].state = Cell::flagged;
-	this->tiles[0].set_label("@<");
+	//this->tiles[0].isMine = true;
+	//this->tiles[0].state = Cell::flagged;
+	//this->tiles[0].set_label("@<");
 }
 
 int MinesweeperWindow::countMines(vector<Point> points) const {
-	return 0;
+	int i = 0;
+	
+	for (auto point : points) {
+		const Tile& t = at(point);
+		if (t.isMine == true) {
+			i = i + 1;
+		}
+	}
+
+	return i;
 };
 vector<Point> MinesweeperWindow::adjacentPoints(Point xy) const {
 	vector<Point> points;
@@ -60,12 +69,42 @@ vector<Point> MinesweeperWindow::adjacentPoints(Point xy) const {
 }
 
 void MinesweeperWindow::openTile(Point xy) {
-	this->tiles[0].open();
+	Tile& t = at(xy);
+	if (t.state == Cell::closed) {
+		t.open();
+		if (t.isMine == false) {
+			this->opened = this->opened + 1;
+			vector<Point> points = adjacentPoints(xy);
+			int num = countMines(points);
+			if (num > 0) {
+				t.setAdjMines(num);
+			}
+			else {
+				for (Point p : points) {
+					openTile(p);
+				}
+			}
+		}
+		else
+		{
+			//game has ended loose
+			
 
+			hide();
+		}
+	}
+	if (this->opened == (width*height - mines)) {
+
+		//In_box text{ Point{50,50},50,20,"YOU WON" };
+
+	}
 }
 
 void MinesweeperWindow::flagTile(Point xy) {
-	this->tiles[0].flag();
+	Tile& t = at(xy);
+	if (t.state == Cell::closed || t.state == Cell::flagged) {
+		t.flag();
+	}
 }
 
 //Kaller opentile ved venstreklikk og flagTile ved høyreklikk

@@ -13,6 +13,7 @@ public:
 	static constexpr int cellSize = 30;
 	MinesweeperWindow(Point xy, int width, int height, int mines, const string& title);
 private:
+	int opened;
 
 	const int width;//width i miner 
 	const int height;//heigth i miner

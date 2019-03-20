@@ -22,6 +22,7 @@ void Tile::open()
 		return;
 	}
 	if (this->state == Cell::closed) {
+		this->state = Cell::open;
 		static_cast<Fl_Button*>(pw)->set();//Setter en button som trykket på, tilsvarer åpnet rute
 	}
 	if (this->isMine == true) {
