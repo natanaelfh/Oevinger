@@ -15,7 +15,16 @@ MinesweeperWindow::MinesweeperWindow(Point xy, int width, int height, int mines,
 	}
 
 	//Legg til miner på tilfeldige posisjoner
+	vector<int> minepos;
+	for (int i = 0; i < (width*height); i++) {
+		minepos.push_back(i);
+	}
+	unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+	shuffle(minepos.begin(), minepos.end(), default_random_engine(seed));
 
+	for (int i = 0; i < mines; i++) {
+		this->tiles[minepos[i]].isMine = true;
+	}
 
 	// Fjern window reskalering
 	resizable(nullptr);
@@ -81,7 +90,3 @@ void MinesweeperWindow::cb_click(Address, Address pw)
 	win.flush();
 }
 
-
-void MinesweeperWindow::setAdjMines(int n) {
-	points
-}

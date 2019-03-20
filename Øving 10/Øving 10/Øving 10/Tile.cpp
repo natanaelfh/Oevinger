@@ -47,3 +47,7 @@ void Tile::flag()
 	}
 }
 
+void Tile::setAdjMines(int n) {
+	this->set_label(to_string(n));
+	this->set_label_color(minesToColor.at(n));
+}

@@ -19,5 +19,7 @@ struct Tile : Button
 
 	Cell state = Cell::closed;
 
-	bool isMine;
+	void setAdjMines(int n);
+
+	bool isMine=false;
 };

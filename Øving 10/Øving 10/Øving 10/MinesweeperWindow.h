@@ -40,6 +40,4 @@ private:
 	//callback funksjon for tile knappen
 	static void cb_click(Address, Address pw);
 
-	//setter en tile til hvor mangen miner den har rundt seg
-	void setAdjMines(int n);
 };
