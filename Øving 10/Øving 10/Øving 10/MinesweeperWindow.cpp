@@ -90,7 +90,7 @@ void MinesweeperWindow::openTile(Point xy) {
 			//game has ended loose
 			
 
-			hide();
+			//hide();
 		}
 	}
 	if (this->opened == (width*height - mines)) {
