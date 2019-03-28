@@ -2,6 +2,7 @@
 #include "oppg1.h"
 #include "Person.h"
 #include "Oppg2.h"
+#include "LinkedList.h"
 
 
 int main(){
@@ -83,6 +84,8 @@ int main(){
 		cout << p << endl;
 	}
 
+
+	testLinkedList();
 
 	return 0;
 }
