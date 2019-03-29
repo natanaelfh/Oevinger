@@ -5,6 +5,7 @@
 #include "LinkedList.h"
 #include <iostream>
 #include <list>
+#include "oppg4.h"
 using namespace std;
 
 int main(){
@@ -88,6 +89,12 @@ int main(){
 
 
 	testLinkedList();
+
+	int a{ 4 };
+	int b{ 8 };
+	int c = GetMax(a, b);
+
+	cout << c;
 
 	return 0;
 }

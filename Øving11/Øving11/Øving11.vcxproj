@@ -138,12 +138,14 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="oppg1.cpp" />
     <ClCompile Include="Oppg2.cpp" />
+    <ClCompile Include="oppg4.cpp" />
     <ClCompile Include="Person.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LinkedList.h" />
     <ClInclude Include="oppg1.h" />
     <ClInclude Include="Oppg2.h" />
+    <ClInclude Include="oppg4.h" />
     <ClInclude Include="Person.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

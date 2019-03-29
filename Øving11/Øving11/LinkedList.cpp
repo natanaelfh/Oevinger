@@ -54,19 +54,40 @@ std::ostream & LinkedList::operator<<(std::ostream & os, const LinkedList & list
 	return os;
 }
 
+LinkedList::Node * LinkedList::LinkedList::find(const std::string & value)
+{
+
+	Node* currentNode{begin() };
+	while (currentNode != end()) {
+		if (currentNode->getValue() == value) {
+			return currentNode;
+		}
+
+		currentNode = currentNode->getNext();
+	}
+	return nullptr;
+}
+
 LinkedList::Node * LinkedList::LinkedList::remove(Node* pos) {
 	if (pos != this->begin()) {
+		if (pos == this->end()) {
+			return pos->next.get();
+		}
+
 		pos->next->prev = pos->prev;
 		pos->prev->next = move(pos->next);
 	}
 	else {
-		if (pos == this->end()) {
-		pos
-		}
+		
 		pos->next->prev = nullptr;
 		head = move(pos->next);
 	}
-	return pos->prev;
+	return pos->next.get();
+}
+
+void LinkedList::LinkedList::remove(const std::string & value)
+{
+	this->remove(this->find(value));
 }
 
 
@@ -79,9 +100,17 @@ void testLinkedList() {
 	list.insert(list.end(), "3");
 	list.insert(list.end(), "4");
 
-	list.remove(list.end());
+	list.remove(list.find("3"));
 
 
 	cout << list;
 }
+
+
+/*
+b)
+det er lurt hvis man fjerner og setter inn elementer ofte
+
+
+*/
 
