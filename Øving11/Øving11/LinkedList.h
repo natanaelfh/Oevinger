@@ -90,6 +90,7 @@ namespace LinkedList {
 
 		// write a string representation of the list to the ostream
 		friend std::ostream & operator<<(std::ostream & os, const LinkedList& list);
+
 	};
 }// namespace LinkedList
 
