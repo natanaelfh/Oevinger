@@ -6,6 +6,7 @@
 #include <iostream>
 #include <list>
 #include "oppg4.h"
+#include <string>
 using namespace std;
 
 int main(){
@@ -90,11 +91,20 @@ int main(){
 
 	testLinkedList();
 
-	int a{ 4 };
-	int b{ 8 };
-	int c = GetMax(a, b);
+	char a{ 'a' };
+	char b{ 'b' };
+	char c = GetMax(a, b);
 
 	cout << c;
+
+	vector<string> liste2{ "1.4", "2.2", "3.4", "4.1", "7.5", "6.5", "7.9" };
+	vector<string> liste222 {Shuffle(liste2)};
+
+	for (int i = 0; i < liste222.size(); i++) {
+		cout << liste222[i] << " ";
+
+	}
+	cout << endl;
 
 	return 0;
 }

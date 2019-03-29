@@ -40,7 +40,7 @@ std::ostream & LinkedList::operator<<(std::ostream & os, const Node & node)
 std::ostream & LinkedList::operator<<(std::ostream & os, const LinkedList & list)
 {
 
-	const Node* currentNode{list.begin()};
+	Node* currentNode{list.begin()};
 	while (true) {
 		if (currentNode != list.end()) {
 			os << *currentNode << endl;
