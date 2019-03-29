@@ -1,5 +1,5 @@
 #include "LinkedList.h"
-
+using namespace std;
 
 LinkedList::Node * LinkedList::LinkedList::insert(Node * pos, const std::string & value)
 {
@@ -8,7 +8,7 @@ LinkedList::Node * LinkedList::LinkedList::insert(Node * pos, const std::string 
 
 		//Node mynode(value, (move(pos->next)), pos->getPrev());
 		pos->next = make_unique<Node>(value, (move(pos->next)), pos);
-		pos->prev = pos->next.get();
+		pos->prev = pos->getPrev();
 
 		return pos->next.get();
 	}
@@ -27,7 +27,13 @@ std::ostream & LinkedList::operator<<(std::ostream & os, const Node & node)
 	return os;
 }
 
+LinkedList::Node * LinkedList::LinkedList::remove(Node* pos) {
 
+	pos->next->prev = pos->prev;
+	pos->prev->next = move(pos->next);
+
+	return pos->prev;
+}
 
 
 void testLinkedList() {
@@ -38,5 +44,7 @@ void testLinkedList() {
 	list.insert(p, "2");
 	list.insert(list.end(), "3");
 	list.insert(list.end(), "4");
+
+	list.remove(p);
 
 }

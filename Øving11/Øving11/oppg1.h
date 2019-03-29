@@ -1,8 +1,9 @@
 #pragma once
-#include "std_lib_facilities.h"
+#include <string>
+#include <vector>
+#include <set>
+
+void replace(std::vector<std::string>& thestring, std::string old, std::string replacement);
 
 
-void replace(vector<string>& thestring, string old, string replacement);
-
-
-void replaceset(set<string>& thestring, string old, string replacement);
+void replaceset(std::set<std::string>& thestring, std::string old, std::string replacement);

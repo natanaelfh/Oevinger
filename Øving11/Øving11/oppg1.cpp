@@ -1,7 +1,7 @@
 #include "oppg1.h"
 
-void replace(vector<string>& thestring, string old, string replacement) {
-	for (vector<string>::iterator i = thestring.begin(); i != thestring.end(); i++) {
+void replace(std::vector<std::string>& thestring, std::string old, std::string replacement) {
+	for (std::vector<std::string>::iterator i = thestring.begin(); i != thestring.end(); i++) {
 		if (*i == old) {
 			*i = replacement;
 		}
@@ -9,7 +9,7 @@ void replace(vector<string>& thestring, string old, string replacement) {
 }
 
 
-void replaceset(set<string>& thestring, string old, string replacement) {
+void replaceset(std::set<std::string>& thestring, std::string old, std::string replacement) {
 	if (thestring.find(old) != thestring.end()) {
 		thestring.erase(old);
 		thestring.insert(replacement);

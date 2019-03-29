@@ -1,17 +1,19 @@
-#include "std_lib_facilities.h"
+
 #include "oppg1.h"
 #include "Person.h"
 #include "Oppg2.h"
 #include "LinkedList.h"
-
+#include <iostream>
+#include <list>
+using namespace std;
 
 int main(){
 
 	// Your code here
-	vector<string>strings{"Consectetur", "Amet", "Sit", "Dolor", "Ipsum", "Lorem"};
+	std::vector<std::string>strings{"Consectetur", "Amet", "Sit", "Dolor", "Ipsum", "Lorem"};
 
-	for (vector<string>::reverse_iterator i = strings.rbegin(); i != strings.rend(); i++) {
-		cout << *i << endl;
+	for (std::vector<std::string>::reverse_iterator i = strings.rbegin(); i != strings.rend(); i++) {
+		std::cout << *i << endl;
 	}
 	for (vector<string>::iterator i = strings.begin(); i != strings.end(); i++) {
 		cout << *i << endl;
